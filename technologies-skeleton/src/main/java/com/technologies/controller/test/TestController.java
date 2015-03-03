@@ -2,9 +2,8 @@ package com.technologies.controller.test;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -12,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestController {
 
 	@RequestMapping("/test")
-	public void test(HttpServletResponse response) throws IOException {
-		response.getWriter().write("This is test controller!!!");
+	public String test(Model model) throws IOException {
+		model.addAttribute("test","This is test controller!!!");
+		return "test";
 	}
 }
