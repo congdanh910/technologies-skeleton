@@ -13,9 +13,20 @@
 		<hibernate.orm.version>4.3.0.Final</hibernate.orm.version>
 		<hibernate.validator.version>5.0.2.Final</hibernate.validator.version>
 		<mysql.version>5.1.27</mysql.version>
+		<mongodb.version>2.11.4</mongodb.version>
+		<spring.mongodb.version>1.6.2.RELEASE</spring.mongodb.version>
 		<jstl.version>1.2</jstl.version>
+		<apache.lang.version>2.6</apache.lang.version>
+		<slf4j.version>1.7.7</slf4j.version>
 	</properties>
 	<dependencies>
+		<!-- Apache library -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${apache.lang.version}</version>
+		</dependency>
+
 		<!-- Spring core, beans, web,... -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -47,7 +58,12 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+		<!-- spring-data-mongodb -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>${spring.mongodb.version}</version>
+		</dependency>
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -65,13 +81,25 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
+		<!-- mongodb -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>${mongodb.version}</version>
+		</dependency>
 		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-
+		<!-- Slf4j logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
 		<!-- Javax servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
