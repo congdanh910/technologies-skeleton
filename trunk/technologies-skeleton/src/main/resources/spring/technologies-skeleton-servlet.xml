@@ -16,6 +16,8 @@
         
 	<context:annotation-config />
 	<context:component-scan base-package="com.technologies.controller" />
+	<context:component-scan base-package="com.technologies.dao" />
+	<context:component-scan base-package="com.technologies.services" />
 	<tx:annotation-driven />
 	<mvc:annotation-driven />
 	<import resource="database.xml"/>
@@ -26,7 +28,4 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<bean id="test" name="test" class="com.technologies.model.Test">
-		<property name="name" value="Danh" />
-	</bean>
 </beans>
