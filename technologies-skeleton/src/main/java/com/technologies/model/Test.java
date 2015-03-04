@@ -1,8 +1,9 @@
 package com.technologies.model;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="test_test")
+@Table(name = "test_test")
 public class Test implements Serializable {
 	private static final long serialVersionUID = 683897912831626931L;
 
@@ -19,10 +20,19 @@ public class Test implements Serializable {
 	private int id;
 	private String name;
 	private int age;
-	private Timestamp createDate;
+	@Column(name = "create_date")
+	private Date createDate;
+	@Column(name = "salary_gross")
 	private double salaryGross;
 
 	public Test() {
+	}
+
+	public Test(String name, int age, Date createDate, double salaryGross) {
+		this.name = name;
+		this.age = age;
+		this.createDate = createDate;
+		this.salaryGross = salaryGross;
 	}
 
 	public int getId() {
@@ -49,11 +59,11 @@ public class Test implements Serializable {
 		this.age = age;
 	}
 
-	public Timestamp getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(Timestamp createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 

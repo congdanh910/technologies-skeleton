@@ -5,15 +5,15 @@
 	<display-name>technologies-skeleton</display-name>
 
 	<!-- context-listener -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
    			classpath:spring/technologies-skeleton-servlet.xml
   		</param-value>
 	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	
 	<!-- servlet mapping -->
 	<servlet>
