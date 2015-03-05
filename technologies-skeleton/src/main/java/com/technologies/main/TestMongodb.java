@@ -1,6 +1,7 @@
 package com.technologies.main;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -8,6 +9,8 @@ import com.technologies.model.MongoTest;
 import com.technologies.repository.MongoTestRepository;
 
 public class TestMongodb {
+	
+	private static Logger logger = LoggerFactory.getLogger(TestMongodb.class);
 	
 	public static void main(String[] args) {
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("spring/technologies-skeleton-servlet.xml");
@@ -18,7 +21,7 @@ public class TestMongodb {
 //		System.out.println(ToStringBuilder.reflectionToString(testRepository.findByName("Danh")));
 		MongoTest mongoTest = testRepository.findByName("Danh");
 		if (null != mongoTest) {
-			System.out.println(ToStringBuilder.reflectionToString(testRepository.findByCreateDate(mongoTest.getCreateDate())));
+			logger.debug("FindByName : {}, {}, {} ", mongoTest.getName(), mongoTest.getAge(), mongoTest.getCreateDate());
 		}
 	}
 }
