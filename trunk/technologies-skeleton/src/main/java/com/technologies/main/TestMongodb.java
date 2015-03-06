@@ -21,6 +21,7 @@ public class TestMongodb {
 //		System.out.println(ToStringBuilder.reflectionToString(testRepository.findByName("Danh")));
 		MongoTest mongoTest = testRepository.findByName("Danh");
 		if (null != mongoTest) {
+			System.out.println(String.format("FindByName : %s, %s, %s ", mongoTest.getName(), mongoTest.getAge(), mongoTest.getCreateDate()));
 			logger.debug("FindByName : {}, {}, {} ", mongoTest.getName(), mongoTest.getAge(), mongoTest.getCreateDate());
 		}
 	}
