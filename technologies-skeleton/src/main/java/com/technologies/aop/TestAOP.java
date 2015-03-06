@@ -12,24 +12,28 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import com.technologies.model.MongoTest;
+
 @Aspect
 @Configuration
 @EnableAspectJAutoProxy
 public class TestAOP {
 
-//	@Around("execution(* com.technologies.repository.MongoTestRepository.findByName(..))")
-//	public void logAround(ProceedingJoinPoint joinPoint) throws Throwable {
-//		System.out.println("logAround() is running!");
-//		System.out.println(String.format("hijacked : %s", joinPoint.getSignature().getName()));
-//		System.out.println("hijacked arguments : " + Arrays.toString(joinPoint.getArgs()));
-//		joinPoint.proceed();
-//		System.out.println("============================================= \n");
-//	}
+	@Around("execution(* com.technologies.repository.MongoTestRepository.findByName(..))")
+	public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
+		System.out.println("logAround() is running!");
+		System.out.println(String.format("hijacked : %s", joinPoint.getSignature().getName()));
+		System.out.println("hijacked arguments : " + Arrays.toString(joinPoint.getArgs()));
+		System.out.println("============================================= \n");
+		Object resutl = joinPoint.proceed();
+		return resutl;
+	}
 	
-	@Before("execution(* com.technologies.repository.MongoTestRepository.findByName(..))")
-	public void logBefore(JoinPoint joinPoint) {
+	@Before(value = "execution(* com.technologies.repository.MongoTestRepository.findByName(..)) && " + "args(name)")
+	public void logBefore(JoinPoint joinPoint, String name) {
 		System.out.println("logBefore() is running!");
 		System.out.println(String.format("hijacked : %s", joinPoint.getSignature().getName()));
+		System.out.println("Name  : " + name);
 		System.out.println("============================================= \n");
 	}
 	
@@ -44,7 +48,7 @@ public class TestAOP {
 	public void logAfterReturning(JoinPoint joinPoint, Object result) {
 		System.out.println("logAfterReturning() is running!");
 		System.out.println(String.format("hijacked : %s", joinPoint.getSignature().getName()));
-		System.out.println("Method returned value is : " + result);
+		System.out.println("Method returned value is : " + ((result != null)?((MongoTest)result).getName():result));
 		System.out.println("============================================= \n");
 	}
 	
