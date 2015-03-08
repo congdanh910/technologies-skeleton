@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SchedulerService {
 
-	@Scheduled(cron = "*/5 * * * * ?")
+	@Scheduled(cron = "${cron.expression.test}")
 	private void runSchedule(){
 		System.out.println("run scheduled.........................");
 	}

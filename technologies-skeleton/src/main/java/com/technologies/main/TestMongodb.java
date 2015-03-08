@@ -13,9 +13,10 @@ import com.technologies.repository.MongoTestRepository;
 public class TestMongodb {
 	
 	private static Logger logger = LoggerFactory.getLogger(TestMongodb.class);
+	private static ApplicationContext appContext;
 	
 	public static void main(String[] args) {
-		ApplicationContext appContext = new ClassPathXmlApplicationContext("spring/technologies-skeleton-servlet.xml");
+		appContext = new ClassPathXmlApplicationContext("spring/technologies-skeleton-servlet.xml");
 
 		MongoTestRepository testRepository = appContext.getBean(MongoTestRepository.class);
 
