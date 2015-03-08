@@ -19,6 +19,7 @@
 		<apache.lang.version>2.6</apache.lang.version>
 		<slf4j.version>1.7.7</slf4j.version>
 		<aspectj.version>1.8.5</aspectj.version>
+		<quartz.version>2.2.1</quartz.version>
 	</properties>
 	<dependencies>
 		<!-- Apache library -->
@@ -104,6 +105,12 @@
 			<artifactId>mongo-java-driver</artifactId>
 			<version>${mongodb.version}</version>
 		</dependency>
+		<!-- Quartz framework -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
 		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
@@ -116,7 +123,6 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-
 		<!-- Javax servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
