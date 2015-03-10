@@ -8,6 +8,6 @@ public class SchedulerService {
 
 	@Scheduled(cron = "${cron.expression.test}")
 	private void runSchedule(){
-		System.out.println("run scheduled.........................");
+//		System.out.println("run scheduled.........................");
 	}
 }
