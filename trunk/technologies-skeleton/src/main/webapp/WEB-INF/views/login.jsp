@@ -7,7 +7,7 @@
 <title>Login</title>
 </head>
 <body>
-	<form action="<c:url value='/skeleton/j_spring_security_check'/>" method="post">
+	<form action="<c:url value='/j_spring_security_check'/>" method="post">
 	    <h1>Login Form</h1>
     	<span>Fill out the form below to login to my super awesome imaginary control panel.</span> <br />
     	<c:if test="${error}">
